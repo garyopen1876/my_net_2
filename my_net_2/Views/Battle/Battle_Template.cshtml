@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <script src="https://unpkg.com/vue@2.6.14/dist/vue.js"></script>
+    <title></title>
+</head>
+<body>
+    <div class="jumbotron">
+        <h1>請就戰鬥準備</h1>
+        <p class="lead">點選開始戰鬥</p>
+    </div>
+    <form method="post">
+        <div class="row">
+            <div class="col-md-4">
+                <p><a class="btn btn-default" id="button">開始打怪喽 &raquo;</a></p>
+            </div>
+            <div id="app">
+                {{ message }}
+            </div>
+            <script>
+                var app = new Vue({
+                    el: '#app',
+                    data: {
+                        message: 'Hello World!'
+                    },
+                });
+            </script>
+        </div>
+    </form>
+</body>
+</html>

@@ -10,34 +10,37 @@ namespace my_net_2.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        public ActionResult Index()
         {
             return View();
         }
 
-        public IActionResult About()
+        public ActionResult About()
         {
-            ViewData["Message"] = "Your application description page.";
+            ViewBag.Message = "一個不是在製造bug，就是在製造更多bug的工程師";
 
             return View();
         }
 
-        public IActionResult Contact()
+        public ActionResult Hero()
         {
-            ViewData["Message"] = "Your contact page.";
+            ViewBag.Message = "英雄一覽";
 
             return View();
         }
 
-        public IActionResult Privacy()
+        public ActionResult Weapon()
         {
+            ViewBag.Message = "武器一覽";
+
             return View();
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        public ActionResult Monster()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            ViewBag.Message = "怪物一覽";
+
+            return View();
         }
     }
 }
