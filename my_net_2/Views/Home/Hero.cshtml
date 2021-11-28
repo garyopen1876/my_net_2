@@ -2,13 +2,13 @@
     ViewBag.Title = "Hero";
     var list = ViewBag.List;
 }
-<h2>@ViewBag.Title.</h2>
+<h2>@ViewBag.Title</h2>
 <h3>@ViewBag.Message</h3>
 <div>
     @for (int i = 0; i < list.Count; i++)
     {
         @Html.Raw($"勇者名稱: {list[i].hero_name}, 勇者血量: {list[i].hero_hp}, 勇者攻擊力: {list[i].hero_base_attack}")
-        <br />
+        <br/>
     }
 </div>
 <p>Use this area to provide additional information.</p>

@@ -33,8 +33,6 @@ namespace my_net_2
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddTransient<MySqlConnection>(_ => new MySqlConnection(Configuration["ConnectionStrings:DatabaseContext"]));
-
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 

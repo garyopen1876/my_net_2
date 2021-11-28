@@ -1,17 +1,22 @@
 ﻿@{
-    Layout = null;
+    ViewBag.Title = "武器列表";
+    var list = ViewBag.List;
 }
 
 <!DOCTYPE html>
-
+<h2>@ViewBag.Title</h2>
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title></title>
+    <title>@ViewBag.Title</title>
 </head>
 <body>
     <div>
-    
+        @for (int i=0;i< list.Count; i++)
+        {
+            @Html.Raw($"武器名稱:{list[i].weapon_name}, 武器攻擊力:{list[i].weapon_attack}, 武器持有者:{list[i].weapon_own}")
+            <br/>
+        }
     </div>
 </body>
 </html>

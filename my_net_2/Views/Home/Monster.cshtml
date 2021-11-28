@@ -1,17 +1,22 @@
 ﻿@{
-    Layout = null;
+    ViewBag.Title = "怪獸一覽";
+    var list = ViewBag.List;
 }
 
 <!DOCTYPE html>
-
+<h2>@ViewBag.Title</h2>
 <html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title></title>
-</head>
-<body>
-    <div>
-    
-    </div>
-</body>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title></title>
+    </head>
+    <body>
+        <div>
+            @for (int i = 0; i < list.Count; i++)
+            {
+                @Html.Raw($"怪物名稱: {list[i].monster_name}, 怪物血量: {list[i].monster_hp}, 怪物攻擊力: {list[i].monster_attack}")
+                <br />
+            }
+        </div>
+    </body>
 </html>
