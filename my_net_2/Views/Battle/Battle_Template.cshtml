@@ -1,5 +1,6 @@
 ﻿@{
     ViewBag.Title = "Home Page";
+    var list = ViewBag.List;
 }
 
 <!DOCTYPE html>
@@ -21,7 +22,11 @@
                 <p><a class="btn btn-default" id="button">開始打怪喽 &raquo;</a></p>
             </div>
             <div id="app">
-                {{ message }}
+               @for (int i=0;i<list.Count;i++)
+               {    
+                   @Html.Raw($"{list[i]}")
+                   <br/>
+               }
             </div>
             <script>
                 var app = new Vue({
