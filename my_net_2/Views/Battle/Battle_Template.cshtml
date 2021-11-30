@@ -1,7 +1,7 @@
 ﻿@{
     ViewBag.Title = "Home Page";
     var list = ViewBag.List;
-}
+ }
 
 <!DOCTYPE html>
 
@@ -20,14 +20,13 @@
         <div class="row">
             <div class="col-md-4">
                 <p><a class="btn btn-default" id="button">開始打怪喽 &raquo;</a></p>
+                <br />
+                <div id="app">
+                    <div id="list">
+                    </div>
+                </div>
             </div>
-            <div id="app">
-               @for (int i=0;i<list.Count;i++)
-               {    
-                   @Html.Raw($"{list[i]}")
-                   <br/>
-               }
-            </div>
+        
             <script>
                 var app = new Vue({
                     el: '#app',
@@ -35,6 +34,13 @@
                         message: 'Hello World!'
                     },
                 });
+                var btn = document.getElementById("button");
+                var list = document.getElementById("list");
+                btn.addEventListener("click", function () {
+                    this.innerText = "打爆";
+                    /*透過innerHTML顯示陣列*/
+                    list.innerHTML = '<div>@for (int i = 0; i < list.Count; i++){@Html.Raw($"{list [i]} ")<br />}</div>';
+                })
             </script>
         </div>
     </form>

@@ -53,6 +53,7 @@ namespace my_net_2
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+				app.UseDatabaseErrorPage();
             }
             else
             {
@@ -63,7 +64,9 @@ namespace my_net_2
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
-
+			
+			app.UseAuthentication();
+			
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
