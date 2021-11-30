@@ -31,7 +31,8 @@ namespace my_net_2.Controllers
                     con.Open();
 
                 Hero hero = new Hero();
-                string hero_call = "select * From hero where hero_name = '狗勇者'";
+                Random a = new Random();
+                string hero_call = "select * From hero where hero_id ="+ a.Next(1, 3).ToString();
                 MySqlCommand com_hero = new MySqlCommand(hero_call, con);
                 
                 using(MySqlDataReader dr = com_hero.ExecuteReader())
@@ -46,7 +47,8 @@ namespace my_net_2.Controllers
 
 
                 Weapon weapon = new Weapon();
-                string weapon_call = "select * From weapon where weapon_name = '小刀'";
+     
+                string weapon_call = "select * From weapon where weapon_id ="+ a.Next(1, 3).ToString();
                 MySqlCommand com_weapon = new MySqlCommand(weapon_call, con);
                 using (MySqlDataReader dr = com_weapon.ExecuteReader())
                 {
@@ -59,7 +61,8 @@ namespace my_net_2.Controllers
                 }
 
                 Monster monster = new Monster();
-                string monster_call = "select * From monster where monster_name='小怪'";
+  
+                string monster_call = "select * From monster where monster_id="+ a.Next(1, 3).ToString();
                 MySqlCommand com_monster = new MySqlCommand(monster_call, con);
                 using (MySqlDataReader dr = com_monster.ExecuteReader())
                 {
@@ -80,6 +83,9 @@ namespace my_net_2.Controllers
                     
                     monster.monster_hp -= (hero.hero_base_attack + weapon.weapon_attack);
                     box_word.Add(hero.hero_name + " 使用 " + weapon.weapon_name + " 給予 " + monster.monster_name + " " + all_attack_point + " 點傷害    " + monster.monster_name + "血量剩餘" + monster.monster_hp);
+             
+                    if (monster.monster_hp < 0)
+                        break;
                     hero.hero_hp -= monster.monster_attack;
                     box_word.Add(monster.monster_name + " 給予 " + hero.hero_name + " " + monster.monster_attack + " 點傷害   " + hero.hero_name + "血量剩餘" + hero.hero_hp);
 

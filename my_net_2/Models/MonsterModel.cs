@@ -10,5 +10,6 @@ namespace my_net_2.Models
         public string monster_name { get; set; }
         public int monster_hp { get; set; }
         public int monster_attack { get; set; }
+        public int id { get; }
     }
 }

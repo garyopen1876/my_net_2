@@ -10,5 +10,7 @@ namespace my_net_2.Models
         public string weapon_name { get; set; }
         public int weapon_attack { get; set; }
         public string weapon_own { get; set; }
+
+        public string weapon_id { get; }
     }
 }

@@ -10,5 +10,7 @@ namespace my_net_2.Models
         public string hero_name { get; set; }
         public int hero_hp { get; set; }
         public int hero_base_attack { get; set; }
+
+        public int hero_id{ get; }
     }
 }
