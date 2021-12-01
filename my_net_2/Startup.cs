@@ -37,13 +37,17 @@ namespace my_net_2
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseMySql(
-                    Configuration.GetConnectionString("DatabaseContext")));
+                options.UseMySql(Configuration.GetConnectionString("DatabaseContext")));
 
             services.AddDefaultIdentity<IdentityUser>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
-
+            // 試接FB api
+            services.AddAuthentication().AddFacebook(facebookOptions => {
+                facebookOptions.AppId = Configuration["FaceBookAPI:AppId"];
+                facebookOptions.AppSecret = Configuration["FaceBookAPI:AppSecret"];
+            });
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
