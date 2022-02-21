@@ -1,5 +1,5 @@
 # my_net_2  
-這次使用ASP.NET Core，完成一個爛爛的小專案  
+這次使用ASP.NET Core，完成一個爛爛的小專案 (Framework 和 Core要分清楚) 
 # 訓練目標
 1.ASP.NET MVC 練習  
 2.MySQL練習  
